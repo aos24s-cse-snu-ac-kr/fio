@@ -1546,9 +1546,9 @@ static int fio_ioring_cmd_fetch_ruhs(struct thread_data *td, struct fio_file *f,
 
     // @jy
     // nvmevirt doesn't support I/O management receive cmd
-    // temporarily set number of ruh to 8
-    // and pids to 0~7
-	fruhs_info->nr_ruhs = 8; // le16_to_cpu(ruhs->nruhsd);
+    // temporarily set number of ruh to 16
+    // and pids to 0~15
+	fruhs_info->nr_ruhs = 16; // le16_to_cpu(ruhs->nruhsd);
 	for (i = 0; i < fruhs_info->nr_ruhs; i++)
         fruhs_info->plis[i] = i; // le16_to_cpu(ruhs->ruhss[i].pid);
 free:
